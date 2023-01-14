@@ -361,3 +361,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/__vm/Upload.vmps.xml
+/__vm/Compile.vmps.xml
+/VoyagerTerminalTFTV3.vcxproj
