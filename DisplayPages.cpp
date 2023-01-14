@@ -146,6 +146,8 @@ extern float current_mA;
 
 extern bool GPSEnabled;
 extern Location myloc;
+extern double mySOG;
+extern double myCOG;
 extern int Range;
 extern int Bearing;
 
@@ -193,6 +195,11 @@ void DisplayPage(int DisplayIndex)
 		lcd.print("Vdc ");
 		lcd.print(dtostrf(current_mA, 3, 0, MsgString ));
 		lcd.print("ma");
+
+		lcd.setCursor(0, 14);
+		lcd.print("SERIAL_RX_BUFFER_SIZE ");
+		lcd.print(SERIAL_RX_BUFFER_SIZE);
+
 		break;
 
 	case dmLPO:  // LPO
@@ -684,17 +691,26 @@ void DisplayPage(int DisplayIndex)
 		DisplayLine1 = "Range and Bearing:";
 		lcd.print(DisplayLine1);
 		lcd.setCursor(0, 8);
-		DisplayLine1 = String(Range) + "m " + String(Bearing) + "T" + "                  ";
+		DisplayLine1 = String(Range) + "m " + String(Bearing) + " deg T" + "                  ";
 		lcd.print(DisplayLine1);
 
 		lcd.setCursor(0, 10);
+		lcd.print("SOG ");
+		lcd.print(mySOG);
+		lcd.print("m/s COG ");
+		lcd.print(myCOG);
+		lcd.print(" deg T   ");
+
+		lcd.setCursor(0, 11);
 		DisplayLine1 = "Satellites: ";
 		lcd.print(DisplayLine1);
 		DisplayLine1 = String(gps.satellites.value());
 		lcd.print(DisplayLine1);
-		DisplayLine1 = " HDOP: ";
+		DisplayLine1 = "  HDOP: ";
 		lcd.print(DisplayLine1);
 		lcd.print(gps.hdop.value());
+		lcd.print("  ");
+
 
 	//	lcd.setCursor(0, 11);
 	//	lcd.print(gps.time.second());

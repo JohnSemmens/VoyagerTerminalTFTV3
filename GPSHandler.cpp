@@ -8,7 +8,8 @@
 
 Location Currentloc;
 extern Location myloc;
-
+extern double mySOG;
+extern double myCOG;
 
 extern bool GPSEnabled;
 //extern float myloc_lat;
@@ -35,6 +36,8 @@ void GPSReadLoop(void*)
 				{
 					myloc.lat = gps.location.lat() * 10000000UL;
 					myloc.lng = gps.location.lng() * 10000000UL;
+					mySOG = gps.speed.mps();
+					myCOG = gps.course.deg();
 
 					Currentloc.lat = Currentloc_lat * 10000000UL;
 					Currentloc.lng = Currentloc_lng * 10000000UL;
@@ -48,8 +51,11 @@ void GPSReadLoop(void*)
 					myloc.lng = 0;
 					Range = 0;
 					Bearing = 0;
-
 				}
+			}
+			else
+			{
+				Bearing = -2;
 			}
 		}
 

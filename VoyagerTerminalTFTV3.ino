@@ -38,7 +38,9 @@
 // V3.07 22/9/2022 add local gps page
 // V3.08 1/10/2022 continue gps work
 // V3.09 9/10/2022 add a Wingsail data page
-
+// V3.10 14/01/2022 display the size of the SERIAL_RX_BUFFER_SIZE on home page.
+// V3.11 14/01/2022 added mySOG myCOG to Range and Bearing Page.
+// 
 // Build Notes: modified HardwareSerial.h located in C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino.
 // increase Serial Rx Buffer size to 256.
 // this is needed because of the amount of time required to get around and back. the messages are about 80 char long, so 64 overflows easily
@@ -46,7 +48,7 @@
 
 
 char Version[] = "Voyager TFT Terminal";
-char VersionDate[] = "V3.09 12/10/2022";
+char VersionDate[] = "V3.11 14/01/2022";
 
 #include "LCDWIKI_GUI.h" //Core graphics library
 #include "LCDWIKI_KBV.h" //Hardware-specific library
@@ -118,6 +120,8 @@ static const int GPSReadTime = 100; //ms
 
 // **** local GPS 
 Location myloc;
+double mySOG;
+double myCOG;
 bool GPSEnabled;
 int Range;
 int Bearing;
