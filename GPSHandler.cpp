@@ -42,8 +42,8 @@ void GPSReadLoop(void*)
 					Currentloc.lat = Currentloc_lat * 10000000UL;
 					Currentloc.lng = Currentloc_lng * 10000000UL;
 
-					Range = get_distance(Currentloc, myloc);
-					Bearing = get_bearingf(Currentloc, myloc);
+					Range = get_distance(myloc,Currentloc);
+					Bearing = get_bearingf(myloc,Currentloc);
 				}
 				else
 				{
@@ -52,10 +52,6 @@ void GPSReadLoop(void*)
 					Range = 0;
 					Bearing = 0;
 				}
-			}
-			else
-			{
-				Bearing = -2;
 			}
 		}
 

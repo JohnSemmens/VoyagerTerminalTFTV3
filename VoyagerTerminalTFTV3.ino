@@ -40,6 +40,8 @@
 // V3.09 9/10/2022 add a Wingsail data page
 // V3.10 14/01/2022 display the size of the SERIAL_RX_BUFFER_SIZE on home page.
 // V3.11 14/01/2022 added mySOG myCOG to Range and Bearing Page.
+// V3.12 15/01/2022 minor display bug fix
+// V3.13 15/01/2022 Range and Bearing calculation was back to front.
 // 
 // Build Notes: modified HardwareSerial.h located in C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino.
 // increase Serial Rx Buffer size to 256.
@@ -48,7 +50,7 @@
 
 
 char Version[] = "Voyager TFT Terminal";
-char VersionDate[] = "V3.11 14/01/2022";
+char VersionDate[] = "V3.13 15/01/2022";
 
 #include "LCDWIKI_GUI.h" //Core graphics library
 #include "LCDWIKI_KBV.h" //Hardware-specific library
